@@ -140,9 +140,9 @@ class Flux(nn.Module):
             x = block(img, vec=vec, pe=pe)
             real_img, txt = x[:, txt.shape[1]:, ...], x[:, :txt.shape[1], ...]
 
-            if i % self.pulid_single_interval == 0 and id is not None:
-                real_img = real_img + id_weight * self.pulid_ca[ca_idx](id, real_img)
-                ca_idx += 1
+            # if i % self.pulid_single_interval == 0 and id is not None:
+            #     real_img = real_img + id_weight * self.pulid_ca[ca_idx](id, real_img)
+            #     ca_idx += 1
 
             img = torch.cat((txt, real_img), 1)
         if aggressive_offload:
