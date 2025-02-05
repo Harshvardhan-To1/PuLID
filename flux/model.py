@@ -119,9 +119,9 @@ class Flux(nn.Module):
         for i, block in enumerate(self.double_blocks):
             img, txt = block(img=img, txt=txt, vec=vec, pe=pe)
 
-            if i % self.pulid_double_interval == 0 and id is not None:
-                img = img + id_weight * self.pulid_ca[ca_idx](id, img)
-                ca_idx += 1
+            # if i % self.pulid_double_interval == 0 and id is not None:
+            #     img = img + id_weight * self.pulid_ca[ca_idx](id, img)
+            #     ca_idx += 1
         if aggressive_offload:
             self.double_blocks.cpu()
 
