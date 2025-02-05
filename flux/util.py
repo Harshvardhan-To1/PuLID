@@ -128,6 +128,7 @@ def load_flow_model(name: str, device: str = "cuda", hf_download: bool = True):
 
     if ckpt_path is not None:
         print("Loading checkpoint")
+        print(ckpt_path)
         # load_sft doesn't support torch.device
         sd = load_sft(ckpt_path, device=str(device))
         missing, unexpected = model.load_state_dict(sd, strict=False)
